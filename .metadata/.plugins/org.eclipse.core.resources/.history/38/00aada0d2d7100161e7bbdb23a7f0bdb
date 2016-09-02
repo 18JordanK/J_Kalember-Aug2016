@@ -40,7 +40,6 @@ public class Calculate {
 		int mixedDenominator = denominator;
 		System.out.println(wholeNum + "_" + mixedNumerator + "/" + mixedDenominator);
 	}
-	
 	public static void foil(int first, int inner, int outer, int last ,char var){
 		int a = first*outer;
 		int b = (first*last) - (inner*outer);
@@ -48,52 +47,4 @@ public class Calculate {
 		System.out.println(a + var + "^2 +" + b + var + c);
 	}
 	// Part 2: Methods with Conditionals
-	public static boolean isDivisbleBy(int num1, int num2){
-		return(num1%num2==0);
-	}
-	
-	public static double absValue(double num){
-		if(num<0){
-			return(0-num);
-		}else{
-			return(num);
-		}
-	}
-	
-	public static double max(double num1, double num2){
-		if(num1>num2){
-			return(num1);
-		}else{
-			return(num2);
-		}
-	}
-	
-	public static double max(double num1, double num2, double num3){
-		if(num1>num2){
-			if(num1>=num3){
-				return(num1);
-			}
-		}else if(num2>=num1){
-			if(num2>=num3){
-				return(num2);
-			}
-		}
-		return(num3);
-	}
-	
-	public static int min(int num1, int num2){
-		if(num1<num2){
-			return(num1);
-		}else{
-			return(num2);
-		}
-	}
-	
-	public static double round2(double num){
-		return(2.2);
-	}
-	//Part 3:Methods that use Loops and Calls to Other Methods
-	public static double exponent(int power, double base){
-		return(2.2);
-	}
 }
