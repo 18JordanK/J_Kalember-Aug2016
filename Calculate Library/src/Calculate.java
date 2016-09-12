@@ -1,5 +1,6 @@
 
 public class Calculate {
+	
 	//Part 1:Methods, Headers, and Basic Math
 	public static int square(int number){
 		return(number*number);
@@ -47,6 +48,7 @@ public class Calculate {
 		int c = inner*last;
 		System.out.println(a + var + "^2 +" + b + var + c);
 	}
+	
 	// Part 2: Methods with Conditionals
 	public static boolean isDivisbleBy(int num1, int num2){
 		return(num1%num2==0);
@@ -60,7 +62,7 @@ public class Calculate {
 		}
 	}
 	
-	public static double max(double num1, double num2){
+	public static double max(int num1, int num2){
 		if(num1>num2){
 			return(num1);
 		}else{
@@ -92,8 +94,47 @@ public class Calculate {
 	public static double round2(double num){
 		return(2.2);
 	}
+
 	//Part 3:Methods that use Loops and Calls to Other Methods
 	public static double exponent(int power, double base){
-		return(2.2);
+		double exponentValue = 1;
+		for(int i=0; i<power; i++){
+			exponentValue *= base;
+		}
+		return(exponentValue);
+	}
+	
+	public static int factorial(int num){
+		int factorialValue = 1;
+		for(int i=num; i>0; i--){
+			factorialValue *= i;
+		}
+		return(factorialValue);
+	}
+	
+	public static boolean isPrime(int num){
+		int numFactors = 0;
+		int factor = 1;
+		for(int i=0; i<num; i++){
+			if(Calculate.isDivisbleBy(num, factor)){
+				factor++;
+			}
+		}
+		if(numFactors > 2){
+			return(false);
+		}else{
+			return(true);
+		}
+	}
+	
+	public static int gcf(int num1, int num2){
+		return(num1);
+	}
+	
+	public static double sqrt(double num){
+		return(num);
 	}
 }
+
+
+
