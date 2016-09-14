@@ -98,28 +98,18 @@ public class Calculate {
 	//Part 3:Methods that use Loops and Calls to Other Methods
 	public static double exponent(int power, double base){
 		double exponentValue = 1;
-		if(power>0){
-			for(int i=0; i<power; i++){
-				exponentValue *= base;
-			}
-		}else{
-			for(int i=0; i<power; i++){
-				exponentValue /= base;
-			}
+		for(int i=0; i<power; i++){
+			exponentValue *= base;
 		}
 		return(exponentValue);
 	}
 	
 	public static int factorial(int num){
 		int factorialValue = 1;
-		if(num<0){
-			throw new IllegalArgumentException("The Factorial is not possible.");
-		}else{
-			for(int i=num; i>0; i--){
-				factorialValue *= i;
-			}
-			return(factorialValue);
+		for(int i=num; i>0; i--){
+			factorialValue *= i;
 		}
+		return(factorialValue);
 	}
 	
 	public static boolean isPrime(int num){
@@ -130,7 +120,11 @@ public class Calculate {
 				factor++;
 			}
 		}
-		return(numFactors>2);
+		if(numFactors > 2){
+			return(false);
+		}else{
+			return(true);
+		}
 	}
 	
 	public static int gcf(int num1, int num2){
@@ -138,16 +132,7 @@ public class Calculate {
 	}
 	
 	public static double sqrt(double num){
-		if(num<0){
-			throw new IllegalArgumentException(num + " has no square roots.");
-		}else{
-			return(num/2);
-		}
-	}
-	
-	//Part 4:Throwing Exceptions
-	public static String quadForm(int a, int b, int c){
-		return("oh" + a);
+		return(num);
 	}
 }
 
