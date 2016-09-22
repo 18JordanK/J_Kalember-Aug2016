@@ -1,0 +1,13 @@
+/*Jordan Kalember August 31,2016.
+ *This code converts a temperature from fahrenheit into celsius.
+ *The temperature in Celsius is printed out as a test.
+ */
+
+public class TempConvert {
+	public static void main(String[] args){
+		double tempFahrenheit = 21;
+		double tempCelsius = (tempFahrenheit-32)*5/9;
+		System.out.print(tempCelsius + " degrees in Celsius.");
+	}
+}
+
