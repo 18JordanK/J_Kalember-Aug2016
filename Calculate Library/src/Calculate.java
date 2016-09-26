@@ -71,16 +71,13 @@ public class Calculate {
 	}
 	
 	public static double max(double num1, double num2, double num3){
-		if(num1>num2){
-			if(num1>=num3){
+		if(num1>num2 && num1>num3){
 				return(num1);
-			}
-		}else if(num2>=num1){
-			if(num2>=num3){
+		}else if(num2>=num1 && num2>=3){
 				return(num2);
-			}
+		}else{
+			return(num3);
 		}
-		return(num3);
 	}
 	
 	public static int min(int num1, int num2){
@@ -92,7 +89,10 @@ public class Calculate {
 	}
 	
 	public static double round2(double num){
-		return(2.2);
+		int numRoundedBy2 = double(int)(num);
+		numRoundedBy2*=100;
+		double result = (int)numRoundedBy2;
+		return(result);
 	}
 
 	//Part 3:Methods that use Loops and Calls to Other Methods
@@ -127,27 +127,51 @@ public class Calculate {
 		int factor = 1;
 		for(int i=0; i<num; i++){
 			if(Calculate.isDivisbleBy(num, factor)){
-				factor++;
+				numFactors++;
 			}
+			factor ++;
 		}
 		return(numFactors>2);
 	}
 	
 	public static int gcf(int num1, int num2){
-		return(num1);
+		int divider = 0;
+		int greaterNum = 0;
+		if(Calculate.max(num1, num2)==num1){
+			greaterNum = num1;
+		}else{
+			greaterNum = num2;
+		}
+		int gcf = 1;
+		for(int i=0;i<greaterNum;i++){
+			if(Calculate.isDivisbleBy(num1, divider)){
+				gcf = divider;
+			}
+			divider++;
+		}
+		return(gcf);
 	}
 	
 	public static double sqrt(double num){
 		if(num<0){
 			throw new IllegalArgumentException(num + " has no square roots.");
 		}else{
-			return(num/2);
+			return(Math.sqrt(num));
 		}
 	}
 	
 	//Part 4:Throwing Exceptions
 	public static String quadForm(int a, int b, int c){
-		return("oh" + a);
+		if(Calculate.discriminant(a, b, c)!=0){
+			System.out.println(2 + " solutions");
+		}else if(Calculate.discriminant(a, b, c)==0){
+			System.out.println(1 + " solutions");
+		}else{
+			System.out.println(" No solutions");
+		}
+		double val1 = -b+Calculate.sqrt(Calculate.discriminant(a, b, c))/2;
+		double val2 = -b-Calculate.sqrt(Calculate.discriminant(a, b, c))/2;
+		return(val1 + " and " + val2);
 	}
 }
 
