@@ -62,37 +62,24 @@ public class Calculate {
 		}
 	}
 	
-	public static double max(int num1, int num2){
-		if(num1>num2){
-			return(num1);
-		}else{
-			return(num2);
-		}
+	public static boolean max(int num1, int num2){
+		return(num1>num2);
 	}
 	
-	public static double max(double num1, double num2, double num3){
-		if(num1>num2 && num1>num3){
-				return(num1);
-		}else if(num2>=num1 && num2>=3){
-				return(num2);
-		}else{
-			return(num3);
-		}
+	public static boolean max(double num1, double num2, double num3){
+		return(num1>num2 && num1>num3);
 	}
 	
-	public static int min(int num1, int num2){
-		if(num1<num2){
-			return(num1);
-		}else{
-			return(num2);
-		}
+	public static boolean min(int num1, int num2){
+		return(num1<num2);
 	}
 	
 	public static double round2(double num){
-		int numRoundedBy2 = double(int)(num);
-		numRoundedBy2*=100;
-		double result = (int)numRoundedBy2;
-		return(result);
+		double numRoundedBy2 = num*100;
+		numRoundedBy2 += 0.5;
+		numRoundedBy2 = (int)numRoundedBy2;
+		return(numRoundedBy2/100);
+		
 	}
 
 	//Part 3:Methods that use Loops and Calls to Other Methods
@@ -137,7 +124,7 @@ public class Calculate {
 	public static int gcf(int num1, int num2){
 		int divider = 0;
 		int greaterNum = 0;
-		if(Calculate.max(num1, num2)==num1){
+		if(Calculate.max(num1, num2)){
 			greaterNum = num1;
 		}else{
 			greaterNum = num2;
@@ -156,7 +143,8 @@ public class Calculate {
 		if(num<0){
 			throw new IllegalArgumentException(num + " has no square roots.");
 		}else{
-			return(Math.sqrt(num));
+			double squareRoot = (num + (num+1)/Calculate.sqrt(num))/20;
+			return(squareRoot);
 		}
 	}
 	

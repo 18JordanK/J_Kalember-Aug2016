@@ -5,7 +5,7 @@ public class DoMath {
 		System.out.println(Calculate.discriminant(2,16,32));
 		Calculate.toMixedNum(4, 3);
 		//Calculate.foil(2, 3, 6, -7, x);
-		System.out.println(Calculate.exponent(3, 5));
-		System.out.print(Calculate.factorial(4));
+		System.out.println(Calculate.round2(5.284));
+		System.out.println(Calculate.sqrt(4));
 	}
 }
