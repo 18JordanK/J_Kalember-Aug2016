@@ -1,7 +1,6 @@
 import java.util.*;
 public class processingNumbers {
 	
-	
 	@SuppressWarnings("resource")
 	public static void ProcessingNumbers(){
 		Scanner userInput = new Scanner(System.in);
@@ -12,7 +11,7 @@ public class processingNumbers {
 		System.out.println("Enter 5 even integers.");
 		for(int i=0;i<5;i++){
 			if(inputNumber%2!=0){
-				inputNumber = userInput.nextInt();
+				inputNumber=userInput.nextInt();
 			}
 			if(inputNumber<min){
 				min = inputNumber;
