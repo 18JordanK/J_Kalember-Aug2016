@@ -22,5 +22,17 @@ public class DoMath {
 		System.out.println(Calculate.discriminant(1,6,9));
 		
 		System.out.println(Calculate.sqrt(4));
+		
+		System.out.println(Calculate.exponent(2, 1));
+		
+		System.out.println(Calculate.toMixedNum(3, 3));
+		
+		System.out.println(Calculate.toRadians(30.0));
+		
+		System.out.println(Calculate.toDegrees(2*Math.PI));
+		
+		System.out.println(Calculate.gcf(100, 15));
+		
+		System.out.println(Calculate.isPrime(11));
 	}
 }
