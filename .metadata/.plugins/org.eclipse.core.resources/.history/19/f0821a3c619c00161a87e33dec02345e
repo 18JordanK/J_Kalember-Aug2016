@@ -27,14 +27,7 @@ public class Split {
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 	public static String spl(String a){
-		return a;
-		int numBread = 0;
-		int 
-		for(int i=0;i<a.length();i++){
-			if(indexOf["bread"]){
-				
-			}
-		}
+			return a;
 	}
 		
 		//Your task pt 2:

@@ -27,12 +27,16 @@ public class Split {
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 	public static String spl(String a){
-		return a;
-		int numBread = 0;
-		int 
-		for(int i=0;i<a.length();i++){
-			if(indexOf["bread"]){
-				
+		int numBreads = 0;
+		String[] letterB = {"b"};
+		String[] letterR = {"r"};
+		String[] letterE = {"e"};
+		String[] letterA = {"a"};
+		String[] letterD = {"d"};
+		for(int i=0; i<a.length();i++){
+			if(a[i] == letterB && a[i+1] == letterR && a[i+2] == letterE && a[i+3] == letterA && a[i+4] == letterD){
+					numBreads++;
+				}
 			}
 		}
 	}
