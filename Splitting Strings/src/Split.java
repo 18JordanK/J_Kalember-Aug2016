@@ -29,10 +29,9 @@ public class Split {
 	public static String spl(String a){
 		return a;
 		int numBread = 0;
-		int 
 		for(int i=0;i<a.length();i++){
-			if(indexOf["bread"]){
-				
+			if(indexOf["bread"]<1){
+				return("Not Bread.");
 			}
 		}
 	}
