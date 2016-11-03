@@ -22,14 +22,11 @@ public class Hello_World {
 		}
 		System.out.println();
 		
-		//append Arr works
-		/*
 		System.out.println("appendArr " + appendArr.toString());
 		for(int i=0;i<appendArr.length;i++){
 			System.out.print(appendArr[i]);
 		}
 		System.out.println();
-		*/
 		
 		System.out.println("removeArr " + removeArr.toString());
 		for(int i=0;i<removeArr.length;i++){
@@ -77,15 +74,17 @@ public class Hello_World {
 	
 	public static int sumEven(int[] arr){
 		int sumOfEvens = 0;
-		for(int i=0;i<arr.length;i+=2){
-			sumOfEvens += arr[i];
+		for(int i=0;i<arr.length;i++){
+			if(i%2==0){
+				sumOfEvens += arr[i];
+			}
 		}
 		return sumOfEvens;
 	}
 	
 	public static void rotateRight(int[] arr){
 		append(arr, 0);
-		for(int i=arr.length;i<1;i--){
+		for(int i=arr.length-1;i<1;i--){
 			arr[i] = arr[i-1];
 		}
 		arr[0] = 0;

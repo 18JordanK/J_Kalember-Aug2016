@@ -77,7 +77,7 @@ public class Hello_World {
 	
 	public static int sumEven(int[] arr){
 		int sumOfEvens = 0;
-		for(int i=0;i<arr.length;i+=2){
+		for(int i=0;i<arr.length+1;i+=2){
 			sumOfEvens += arr[i];
 		}
 		return sumOfEvens;
@@ -85,7 +85,7 @@ public class Hello_World {
 	
 	public static void rotateRight(int[] arr){
 		append(arr, 0);
-		for(int i=arr.length;i<1;i--){
+		for(int i=arr.length-1;i<1;i--){
 			arr[i] = arr[i-1];
 		}
 		arr[0] = 0;

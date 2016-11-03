@@ -85,7 +85,7 @@ public class Hello_World {
 	
 	public static void rotateRight(int[] arr){
 		append(arr, 0);
-		for(int i=arr.length;i<1;i--){
+		for(int i=arr.length-1;i<1;i--){
 			arr[i] = arr[i-1];
 		}
 		arr[0] = 0;
