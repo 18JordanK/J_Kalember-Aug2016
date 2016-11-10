@@ -30,7 +30,8 @@ public class Split {
 		return a;
 		int numBread = 0;
 		for(int i=0;i<a.length();i++){
-			if(indexOf["bread"]<1){
+			boolean[] indexOf;
+			if(indexOf["bread"]){
 				return("Not Bread.");
 			}
 		}
