@@ -2,10 +2,19 @@ import java.awt.Point;
 import java.util.*;
 public class FracCalc {
 
-    public static void main(String[] args) 
-    {
+    @SuppressWarnings("resource")
+	public static void main(String[] args){
     	Scanner userInput = new Scanner(System.in);
-    	String userString = userInput.nextString();
+    	String userString = userInput.nextLine();
+    	System.out.println("Enter a problem.");
+    	produceAnswer(userString);
+    	while(userString != "quit"){
+    		userString = userInput.nextLine();
+    		if(userString.toLowerCase() == "quit"){
+    			break;
+    		}
+    		produceAnswer(userString);
+    	}
     	System.out.println("Enter a problem.");
     	System.out.println(produceAnswer(userString));
     	
@@ -21,26 +30,38 @@ public class FracCalc {
     //        
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
+    
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
         String firstFrac = "";
         Point firstFracPosition = new Point(0,0);
+        
         String operator = "";
         int operatorPosition = 0;
+        
         String secondFrac = "";
         Point secondFracPosition = new Point(0,0);
+        
         int numSpaces = 0;
-    	for(int i=0; i<input.length();i++){
+        int index = 0;
+        while(numSpaces < 2){
+        	if(input.substring(index, index+1) == " "){
+        		numSpaces++;
+        	}
+        	
+        }
+    	/*for(int i=0; i<input.length();i++){
     		if(input.substring(i,i+1) == " " && numSpaces == 0){
     			firstFracPosition.translate(0, i-1);
     			numSpaces++;
     		}
-    		if(input.substring(i,i+1) == " " && numSpaces == 0){
+    		if(input.substring(i,i+1) == " " && numSpaces == 1){
     			operatorPosition = i;
     			numSpaces++;
     		}
     	}
+    	*/
         return "";
     }
 
