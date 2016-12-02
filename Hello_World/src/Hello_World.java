@@ -1,11 +1,27 @@
+import java.util.Scanner;
 
 public class Hello_World {
-	/*public static void main(String[] ){
+	/*
+	public static void main(String[] ){
 		System.out.print("Hello World");
+		
 	}
 	*/
+	
 	public static void main(String[] args){
+		@SuppressWarnings("resource")
+		Scanner userInput = new Scanner(System.in);
+    	String userString = userInput.nextLine();
+    	System.out.println("Enter a problem.");
+    	
+    	while(userString != "quit"){
+    		if(userString.toLowerCase() == "quit"){
+    			break;
+    		}
+    		userString = userInput.nextLine();
+    	}
 		//b
+		/*
 		int[] a1 = {5,10,15,20,25,30,35,40};
 		int[] a2 = {7,14,21,28,35,42,49,56};
 		int[] sumArr  = sum(a1,a2);
@@ -22,6 +38,7 @@ public class Hello_World {
 		}
 		System.out.println();
 		
+		
 		//append Arr works
 		/*
 		System.out.println("appendArr " + appendArr.toString());
@@ -29,7 +46,7 @@ public class Hello_World {
 			System.out.print(appendArr[i]);
 		}
 		System.out.println();
-		*/
+		
 		
 		System.out.println("removeArr " + removeArr.toString());
 		for(int i=0;i<removeArr.length;i++){
@@ -90,4 +107,5 @@ public class Hello_World {
 		}
 		arr[0] = 0;
 	}
+	*/
 }

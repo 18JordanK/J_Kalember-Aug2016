@@ -31,49 +31,11 @@ public class FracCalc {
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
     
-    public static String produceAnswer(String input)
-    { 
+    public static String produceAnswer(String input){ 
         // TODO: Implement this function to produce the solution to the input
-        int numSpaces = 0;
-        int indx = 0;
-        int firstIndx = 0;
-        int lastIndx = 0;
-    	
-        String firstOperand = "";
-    	while(numSpaces == 0){
-    		if(input == " "){
-    			numSpaces++;
-    			lastIndx = indx;
-    		}
-    		indx++;
-    	}
-    	firstOperand += input.indexOf(firstIndx, lastIndx+1);
-    	
-        String operator = "";
-        while(numSpaces == 1){
-        	firstIndx = indx;
-    		if(input == " "){
-    			numSpaces++;
-    			lastIndx = indx;
-    		}
-    		indx++;
-    	}
-        operator += input.indexOf(firstIndx, lastIndx+1);
-        
-        String secondOperand = "";
-        while(numSpaces == 0){
-        	firstIndx = 0;
-    		if(input == " "){
-    			numSpaces++;
-    			lastIndx = indx;
-    		}
-    		indx++;
-    	}
-        
-        secondOperand += input.indexOf(firstIndx, lastIndx+1);
-        return("whole:" + secondWholeNum + "numerator:" + secondNumerator + "denominator:" + secondDenominator);
+    	int numSpaces = 0;
+    	return("a");
     }
-
+ 
     // TODO: Fill in the space below with any helper methods that you think you will need
-    
-}
+ }
