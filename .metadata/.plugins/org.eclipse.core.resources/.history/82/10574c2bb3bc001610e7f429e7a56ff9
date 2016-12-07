@@ -33,20 +33,16 @@ public class FracCalc {
     
     public static String produceAnswer(String input){ 
         // TODO: Implement this function to produce the solution to the input
-    	String[] splitString = splitTheString(input);
-    	int[] 
-    	
-    	if(arr[1] == "+"){
-    		input = addSubtract(arr[0],arr[1],false);
-    	}else if(arr[1] == "-"){
-    		input = addSubtract(arr[0],arr[1],true);
-    	}else if(arr[1] == "*"){
-    		input = multDivide(arr[0],arr[1],true);
-    	}else if(arr[1] == "/"){
-    		input = multiplyDivide(arr[0],arr[1],false);
-    	}
-    	
+    	String[] splitString = splitTheString(input); 
+    	return input;
+    }
+    
+    public static String[] splitTheString(String input){
     	String[] components = new String[3];
+    	
+    	String firstOperand = "";
+    	String calculation = "";
+    	String secondOperand = "";
     	
     	//Gets the index of the space and stores in variables
     	int indxOfFirstSpace = 0;
@@ -62,49 +58,14 @@ public class FracCalc {
     		i++;
     	}
     	
-    	//Uses the index to get strings of each 
-    	String firstOperand = input.substring(0,indxOfFirstSpace);
-    	String calculation = input.substring(indxOfFirstSpace+1, indxOfSecondSpace);
-    	String secondOperand = input.substring(indxOfSecondSpace+1);
+    	firstOperand = subString(0,indxOfFirstSpace);
+    	calculation = subString(indxOfFirstSpace+1, indxOfSecondSpace);
+    	secondOperand = subString(indxOfSecondSpace+1);
     	
-    	//Adds the String of operands and calculations to Array
+    	//Adds the strings of the operand and calculation to Array
     	components[0] = firstOperand;
     	components[1] = calculation;
     	components[2] = secondOperand;
-    	
-    	int[] parsedOperands1 = parseOperands(components[0]);
-    	int[] parsedOperands2 = parseOperands(components[2]);
-    	
-    	return input;
-    }
-    
-    public static int[] parseOperands(String operand){
-    	int indxOfUnderscore = 0;
-    	int indxOfSlash = 0;
-    	int[] components = {3};
-    	
-    	if(operand.contains("_")){
-    		indxOfUnderscore = operand.indexOf("_");
-    	}
-    	if(operand.contains("/")){
-    		indxOfUnderscore = operand.indexOf("/");
-    	}
-    		
-    	if(indxOfUnderscore == 0 && indxOfSlash == 0){
-    		components[1] = 0;
-    		components[2] = 1;
-    	}else if(indxOfUnderscore == 0){
-    		components[0] = 0;
-    	}else if(indxOfSlash == 0){
-    		components[1] = 1;
-    	}
-    	String wholeNum = operand.substring(0, indxOfUnderscore+1); 
-    	String numerator = operand.substring(indxOfUnderscore+1, indxOfSlash+1);
-    	String denominator = operand.substring(indxOfSlash+1);
-    	components = (wholeNum,numerator,denominator);
-    	
-    	//Changes the arr(whole,numerator,denominator) to (numerator,denominator).
-    	toImproperFrac(components);
     	
     	return components;
     }
