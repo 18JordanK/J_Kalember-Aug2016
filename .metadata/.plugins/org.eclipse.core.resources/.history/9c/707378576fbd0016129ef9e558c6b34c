@@ -33,17 +33,30 @@ public class FracCalc {
     
     public static String produceAnswer(String input){ 
         // TODO: Implement this function to produce the solution to the input
-    	String[] splitInput = new String[3];
+    	String[] splitString = splitTheString(input);
+    	int[] 
+    	
+    	if(arr[1] == "+"){
+    		input = addSubtract(arr[0],arr[1],false);
+    	}else if(arr[1] == "-"){
+    		input = addSubtract(arr[0],arr[1],true);
+    	}else if(arr[1] == "*"){
+    		input = multDivide(arr[0],arr[1],true);
+    	}else if(arr[1] == "/"){
+    		input = multiplyDivide(arr[0],arr[1],false);
+    	}
+    	
+    	String[] components = new String[3];
     	
     	//Gets the index of the space and stores in variables
     	int indxOfFirstSpace = 0;
     	int indxOfSecondSpace = 0;
     	int i = 0;
-    	while(i<splitInput.length){
-    		if(indxOfFirstSpace == 0 && splitInput[i] != " "){
+    	while(i<components.length){
+    		if(indxOfFirstSpace == 0 && components[i] != " "){
     			indxOfFirstSpace = i;
     		}
-    		if(indxOfSecondSpace == 0 && splitInput[i] != " "){
+    		if(indxOfSecondSpace == 0 && components[i] != " "){
     			indxOfSecondSpace = i;
     		}
     		i++;
@@ -55,26 +68,14 @@ public class FracCalc {
     	String secondOperand = input.substring(indxOfSecondSpace+1);
     	
     	//Adds the String of operands and calculations to Array
-    	splitInput[0] = firstOperand;
-    	splitInput[1] = calculation;
-    	splitInput[2] = secondOperand;
+    	components[0] = firstOperand;
+    	components[1] = calculation;
+    	components[2] = secondOperand;
     	
-    	int[] parsedOperands1 = parseOperands(splitInput[0]);
-    	int[] parsedOperands2 = parseOperands(splitInput[2]);
-    	int solution = 0;
+    	int[] parsedOperands1 = parseOperands(components[0]);
+    	int[] parsedOperands2 = parseOperands(components[2]);
     	
-    	if(splitInput[1] == "+"){
-    		solution = addSubtract(parsedOperands1,parsedOperands2,false);
-    	}else if(splitInput[1] == "-"){
-    		solution = addSubtract(parsedOperands1,parsedOperands2,true);
-    	}else if(splitInput[1] == "*"){
-    		solution = multiplyDivide(parsedOperands1,parsedOperands2,true);
-    	}else if(splitInput[1] == "/"){
-    		solution = multiplyDivide(parsedOperands1,parsedOperands2,false);
-    	}
-    	
-    	String result = "" + solution;
-    	return result;
+    	return input;
     }
     
     public static int[] parseOperands(String operand){
@@ -97,17 +98,10 @@ public class FracCalc {
     	}else if(indxOfSlash == 0){
     		components[1] = 1;
     	}
-    	String wholeNumString = operand.substring(0, indxOfUnderscore+1); 
-    	String numeratorString = operand.substring(indxOfUnderscore+1, indxOfSlash+1);
-    	String denominatorString = operand.substring(indxOfSlash+1);
-    	
-    	int wholeNumInt = Integer.parseInt(wholeNumString);
-    	int numeratorInt = Integer.parseInt(numeratorString);
-    	int denominatorInt = Integer.parseInt(denominatorString);
-    	
-    	components[0] = wholeNumInt;
-    	components[1] = numeratorInt;
-    	components[2] = denominatorInt;
+    	String wholeNum = operand.substring(0, indxOfUnderscore+1); 
+    	String numerator = operand.substring(indxOfUnderscore+1, indxOfSlash+1);
+    	String denominator = operand.substring(indxOfSlash+1);
+    	components = (wholeNum,numerator,denominator);
     	
     	//Changes the arr(whole,numerator,denominator) to (numerator,denominator).
     	toImproperFrac(components);
