@@ -1,23 +1,14 @@
 import java.util.*;
 
 public class FracCalc {
-	@SuppressWarnings("resource")
 	public static void main(String[] args){
     	Scanner userInput = new Scanner(System.in);
     	String userString = userInput.nextLine();
     	System.out.println("Enter a problem.");
-    	produceAnswer(userString);
-    	
-    	while(userString != "quit"){
-    		if(userString.toLowerCase() == "quit"){
-    			
-    		}
-    		produceAnswer(userString);
-    		userString = userInput.nextLine();
+    	while(userString != "userString"){
+	    	produceAnswer(userString);
+	    	System.out.println(produceAnswer(userString));
     	}
-    	
-    	System.out.println(produceAnswer(userString));
-    	
         // TODO: Read the input from the user and call produceAnswer with an equation
 
     }
@@ -31,22 +22,19 @@ public class FracCalc {
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
     
-    public static String produceAnswer(String input){ 
-        // TODO: Implement this function to produce the solution to the input
-    	String[] splitInput = new String[3];
+	public static String[] splitString(String input){
+    	String[] splitString = new String[3];
     	
     	//Gets the index of the space and stores in variables
     	int indxOfFirstSpace = 0;
     	int indxOfSecondSpace = 0;
-    	int i = 0;
-    	while(i<splitInput.length){
-    		if(indxOfFirstSpace == 0 && splitInput[i] != " "){
+    	for(int i=0;i<input.length();i++){
+    		if(indxOfFirstSpace == 0 && splitString[i] != " "){
     			indxOfFirstSpace = i;
     		}
-    		if(indxOfSecondSpace == 0 && splitInput[i] != " "){
+    		if(indxOfSecondSpace == 0 && splitString[i] != " "){
     			indxOfSecondSpace = i;
     		}
-    		i++;
     	}
     	
     	//Uses the index to get strings of each 
@@ -55,14 +43,22 @@ public class FracCalc {
     	String secondOperand = input.substring(indxOfSecondSpace+1);
     	
     	//Adds the String of operands and calculations to Array
-    	splitInput[0] = firstOperand;
-    	splitInput[1] = calculation;
-    	splitInput[2] = secondOperand;
+    	splitString[0] = firstOperand;
+    	splitString[1] = calculation;
+    	splitString[2] = secondOperand;
+    	
+    	return splitString;
+    }
+    
+    public static String produceAnswer(String input){ 
+        // TODO: Implement this function to produce the solution to the input
+    	String[] splitInput = splitString(input);
     	
     	int[] parsedOperands1 = parseOperands(splitInput[0]);
     	int[] parsedOperands2 = parseOperands(splitInput[2]);
-    	int solution = 0;
     	
+    	int[] solution = {3};
+    	// Does the correct operation based on input given by user and sets value to the solution.
     	if(splitInput[1] == "+"){
     		solution = addSubtract(parsedOperands1,parsedOperands2,false);
     	}else if(splitInput[1] == "-"){
@@ -72,15 +68,17 @@ public class FracCalc {
     	}else if(splitInput[1] == "/"){
     		solution = multiplyDivide(parsedOperands1,parsedOperands2,false);
     	}
+    	// Puts the solution in format to be printed out.
+    	toMixedNum(solution);
     	
-    	String result = "" + solution;
-    	return result;
+    	// prints the solution in string fraction format.
+    	return(solution[0] + "_" + solution[1] + "/" + solution[2]);
     }
     
     public static int[] parseOperands(String operand){
     	int indxOfUnderscore = 0;
     	int indxOfSlash = 0;
-    	int[] components = {3};
+    	int[] parsedOperand = {3};
     	
     	if(operand.contains("_")){
     		indxOfUnderscore = operand.indexOf("_");
@@ -88,15 +86,17 @@ public class FracCalc {
     	if(operand.contains("/")){
     		indxOfUnderscore = operand.indexOf("/");
     	}
-    		
+    	
+    	//checks for special cases of input where there is no "/" or "_".
     	if(indxOfUnderscore == 0 && indxOfSlash == 0){
-    		components[1] = 0;
-    		components[2] = 1;
+    		parsedOperand[1] = 0;
+    		parsedOperand[2] = 1;
     	}else if(indxOfUnderscore == 0){
-    		components[0] = 0;
+    		parsedOperand[0] = 0;
     	}else if(indxOfSlash == 0){
-    		components[1] = 1;
+    		parsedOperand[1] = 1;
     	}
+    	
     	String wholeNumString = operand.substring(0, indxOfUnderscore+1); 
     	String numeratorString = operand.substring(indxOfUnderscore+1, indxOfSlash+1);
     	String denominatorString = operand.substring(indxOfSlash+1);
@@ -105,14 +105,14 @@ public class FracCalc {
     	int numeratorInt = Integer.parseInt(numeratorString);
     	int denominatorInt = Integer.parseInt(denominatorString);
     	
-    	components[0] = wholeNumInt;
-    	components[1] = numeratorInt;
-    	components[2] = denominatorInt;
+    	parsedOperand[0] = wholeNumInt;
+    	parsedOperand[1] = numeratorInt;
+    	parsedOperand[2] = denominatorInt;
     	
     	//Changes the arr(whole,numerator,denominator) to (numerator,denominator).
-    	toImproperFrac(components);
+    	toImproperFrac(parsedOperand);
     	
-    	return components;
+    	return parsedOperand;
     }
     
     public static void toImproperFrac(int[] arr){
@@ -123,8 +123,20 @@ public class FracCalc {
     	arr[1] = denominator;
     }
     
-    public static int multiplyDivide(int[] arr1, int[] arr2, boolean divide){
-    	//Swaps the values of the numerator and denominator to become reciprocal when divide
+    public static void toMixedNum(int [] arr){
+    	int wholeNum = arr[0] / arr[2];
+    	int numerator = arr[0] % arr[2];
+    	int denominator = arr[1];
+    	
+    	arr[0] = wholeNum;
+    	arr[1] = numerator;
+    	arr[2] = denominator;
+    }
+    
+    public static int[] multiplyDivide(int[] arr1, int[] arr2, boolean divide){
+    	int[] result = {2};
+    	
+    	//Swaps the values of the numerator and denominator to become reciprocal when divide is true
     	if(divide){
     		int control = arr2[0];
     		arr2[0] = arr2[1];
@@ -133,11 +145,15 @@ public class FracCalc {
     	int productNumerator = arr1[0] * arr1[0];
     	int productDenominator = arr1[1] * arr2[1];
     	
-    	return(productNumerator/productDenominator);
+    	result[0] = productNumerator;
+    	result[1] = productDenominator;
+    	return result;
     }
     
-    public static int addSubtract(int[] arr1, int[] arr2, boolean subtract){
-    	// Makes numerator of second operand negative when its subtraction
+    public static int[] addSubtract(int[] arr1, int[] arr2, boolean subtract){
+    	int[] result = {2};
+    	
+    	//Makes the numerator of second operand negative when subtract is true
     	if(subtract){
     		arr2[0] *= -1;
     	}
@@ -147,7 +163,9 @@ public class FracCalc {
     	int sumNumerator = num1+num2;
     	int sumDenominator = arr1[1] * arr1[1];
     	
-    	return (sumNumerator/sumDenominator);
+    	result[0] = sumNumerator;
+    	result[1] = sumDenominator;
+    	return result;
     }
     // TODO: Fill in the space below with any helper methods that you think you will need
  }
