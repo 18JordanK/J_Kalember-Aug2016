@@ -33,6 +33,9 @@ public class FracCalc {
     	for(int i=0;i<input.length();i++){
     		if(indxOfFirstSpace == 0 && splitString[i] != " "){
     			indxOfFirstSpace = i;
+    			if(indxOfSecondSpace == 0 && splitString[i] != " "){
+    				indxOfSecondSpace = i;
+	    		}
     		}
     	}
     	

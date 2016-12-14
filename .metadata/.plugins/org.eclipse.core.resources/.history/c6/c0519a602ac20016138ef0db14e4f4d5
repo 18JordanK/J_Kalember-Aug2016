@@ -1,15 +1,14 @@
 import java.util.*;
 
-public class FracCalc {
+public class Hello_World {
 	public static void main(String[] args){
-    	Scanner userInput = new Scanner(System.in);
+    	@SuppressWarnings("resource")
+		Scanner userInput = new Scanner(System.in);
+    	String userString = userInput.nextLine();
     	System.out.println("Enter a problem.");
-    	String userString = userInput.next();
-    	
-    	while(userString != "stop"){
+    	while(userString != "userString"){
 	    	produceAnswer(userString);
 	    	System.out.println(produceAnswer(userString));
-	    	userString = userInput.next();
     	}
         // TODO: Read the input from the user and call produceAnswer with an equation
 
@@ -33,6 +32,9 @@ public class FracCalc {
     	for(int i=0;i<input.length();i++){
     		if(indxOfFirstSpace == 0 && splitString[i] != " "){
     			indxOfFirstSpace = i;
+    		}
+    		if(indxOfSecondSpace == 0 && splitString[i] != " "){
+    			indxOfSecondSpace = i;
     		}
     	}
     	

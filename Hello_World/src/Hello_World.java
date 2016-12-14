@@ -2,8 +2,9 @@ import java.util.*;
 
 public class Hello_World {
 	public static void main(String[] args){
-    	Scanner userInput = new Scanner(System.in);
-    	String userString = userInput.nextLine();
+    	@SuppressWarnings("resource")
+		Scanner userInput = new Scanner(System.in);
+    	String userString = userInput.next();
     	System.out.println("Enter a problem.");
     	while(userString != "userString"){
 	    	produceAnswer(userString);
