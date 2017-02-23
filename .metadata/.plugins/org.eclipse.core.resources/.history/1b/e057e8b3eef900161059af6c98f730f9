@@ -13,7 +13,6 @@ public class ReadFile {
 			double difference = nextNum - currNum;
 			
 			System.out.println(currNum + " to " + nextNum + ", change = " + difference);
-			
 			currNum = nextNum;
 		}
 	}
