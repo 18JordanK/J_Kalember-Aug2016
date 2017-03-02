@@ -5,6 +5,20 @@ package textExcel;
 public class Spreadsheet implements Grid
 {
 
+	private int colsNumber;
+	private int rowsNumber;
+	
+	public Spreadsheet(int cNumber, int rNumber){
+		colsNumber = cNumber;
+		rowsNumber = rNumber;
+		
+		RealCell[][] arraySpreadsheet = new RealCell[colsNumber][rowsNumber];
+		for(int i=0; i<rowsNumber; i++){
+			RealCell o = new RealCell;
+		}
+		
+	}
+	
 	@Override
 	public String processCommand(String command)
 	{
@@ -15,15 +29,13 @@ public class Spreadsheet implements Grid
 	@Override
 	public int getRows()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return rowsNumber;
 	}
 
 	@Override
 	public int getCols()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return colsNumber;
 	}
 
 	@Override
