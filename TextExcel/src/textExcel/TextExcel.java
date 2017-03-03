@@ -8,8 +8,12 @@ import java.util.Scanner;
 public class TextExcel
 {
 
-	public static void main(String[] args)
-	{
-	    // Add your command loop here
+	public static void main(String[] args){
+		String safeword = "quit";
+		Scanner console = new Scanner(System.in);
+		String userCommand = console.nextLine();
+		while(!(userCommand.equals(safeword))){
+			Spreadsheet.processCommand(userCommand);
+		}
 	}
 }
