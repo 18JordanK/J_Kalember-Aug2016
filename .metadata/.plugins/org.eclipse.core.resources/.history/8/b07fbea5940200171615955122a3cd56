@@ -4,8 +4,8 @@ package textExcel;
 
 public class SpreadsheetLocation implements Location
 {
-	private static int rowNumber;
-	private static int colNumber;
+	private int rowNumber;
+	private int colNumber;
 	
 	public SpreadsheetLocation(String cellName){
 		char rowLetterChar = cellName.charAt(0);
@@ -13,11 +13,14 @@ public class SpreadsheetLocation implements Location
 		
 		String colNumberString = cellName.substring(1);
 		int colNumberInt = Integer.parseInt(colNumberString);
-
-		SpreadsheetLocation.setLocation(rowLetterInt, colNumberInt);
+		
+		
+		rowNumber = rowLetterInt;
+		colNumber = colNumberInt;
+		SpreadsheetLocation.setLocation(rowNumber, colNumber);
 	}
 	
-	public static void setLocation(int row, int col){
+	public void setLocation(int row, int col){
 		rowNumber = row;
 		colNumber = col;
 	}
@@ -26,14 +29,14 @@ public class SpreadsheetLocation implements Location
     public int getRow()
     {
         // TODO Auto-generated method stub
-        return rowNumber;
+        return this.rowNumber;
     }
 
     @Override
     public int getCol()
     {
         // TODO Auto-generated method stub
-        return colNumber;
+        return this.colNumber;
     }
     
 }

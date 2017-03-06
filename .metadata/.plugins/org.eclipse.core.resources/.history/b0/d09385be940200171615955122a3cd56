@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class Spreadsheet implements Grid
 {
-	private static int rowsNumber;
-	private static int colsNumber;
+	private int rowsNumber;
+	private int colsNumber;
 	
 	public Spreadsheet(){
-		EmptyCell[][] arraySpreadsheet = new EmptyCell[20][12];
+		EmptyCell[][] arraySpreadsheet = new EmptyCell[12][20];
 		
 		for(int i=0;i<rowsNumber; i++){
 			for(int j=0; j<colsNumber; j++){

@@ -13,7 +13,10 @@ public class SpreadsheetLocation implements Location
 		
 		String colNumberString = cellName.substring(1);
 		int colNumberInt = Integer.parseInt(colNumberString);
-
+		
+		
+		rowNumber = rowLetterInt;
+		colNumber = colNumberInt;
 		SpreadsheetLocation.setLocation(rowLetterInt, colNumberInt);
 	}
 	

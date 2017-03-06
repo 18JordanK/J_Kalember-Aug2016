@@ -1,5 +1,7 @@
 package textExcel;
 
+import java.util.Scanner;
+
 public class TextCell implements Cell {
 	
 	@Override
