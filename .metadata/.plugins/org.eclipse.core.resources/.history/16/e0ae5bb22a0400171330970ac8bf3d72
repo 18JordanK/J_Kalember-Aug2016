@@ -4,6 +4,10 @@ public class TextCell implements Cell {
 	private String text;
 	
 	public TextCell(String t){
+		text = t;
+	}
+	
+	public void setText(String t){
 		this.text = t;
 	}
 	
@@ -13,12 +17,7 @@ public class TextCell implements Cell {
 	}
 	
 	public String padToTen(String text){
-		String paddedText;
-		for(int i=text.length();i<10;i++){
-			text += " ";
-		}
-		paddedText = text;
-		return paddedText;
+		return null;
 	}
 	
 	@Override

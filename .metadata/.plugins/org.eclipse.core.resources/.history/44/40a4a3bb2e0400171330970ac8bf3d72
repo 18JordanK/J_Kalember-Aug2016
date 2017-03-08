@@ -11,9 +11,7 @@ public class TextExcel{
 	public static void main(String[] args){
 		@SuppressWarnings("resource")
 		Scanner console = new Scanner(System.in);
-		
 		String userCommand = console.nextLine();
-		System.out.println("Enter a command. ");
 		
 		Spreadsheet sprsheet = new Spreadsheet();
 		sprsheet.setRows(20);

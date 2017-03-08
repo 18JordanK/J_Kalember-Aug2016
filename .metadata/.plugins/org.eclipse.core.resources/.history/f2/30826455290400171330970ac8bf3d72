@@ -18,11 +18,11 @@ public class Spreadsheet implements Grid
 	}
 	
 	public void setRows(int num){
-		this.rowsNumber = num;
+		rowsNumber = num;
 	}
 	
 	public void setColumns(int num){
-		this.colsNumber = num;
+		colsNumber = num;
 	}
 	
 	@Override
@@ -35,13 +35,13 @@ public class Spreadsheet implements Grid
 	@Override
 	public int getRows()
 	{
-		return this.rowsNumber;
+		return rowsNumber;
 	}
 
 	@Override
 	public int getCols()
 	{
-		return this.colsNumber;
+		return colsNumber;
 	}
 
 	@Override

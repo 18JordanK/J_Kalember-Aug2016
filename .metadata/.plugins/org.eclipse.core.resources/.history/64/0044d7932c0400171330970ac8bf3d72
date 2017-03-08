@@ -7,18 +7,17 @@ public class TextCell implements Cell {
 		this.text = t;
 	}
 	
+	public void setText(String t){
+		this.text = t;
+	}
+	
 	public String truncate(String text){
 		String truncatedText = text.substring(10);
 		return truncatedText;
 	}
 	
 	public String padToTen(String text){
-		String paddedText;
-		for(int i=text.length();i<10;i++){
-			text += " ";
-		}
-		paddedText = text;
-		return paddedText;
+		return null;
 	}
 	
 	@Override

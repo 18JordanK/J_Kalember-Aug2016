@@ -15,12 +15,13 @@ public class SpreadsheetLocation implements Location
 		int colNumberInt = Integer.parseInt(colNumberString);
 		
 		this.row = rowLetterInt;
-		this.column = colNumberInt - 1;
-		
+		this.column = colNumberInt;
 	}
 	
 	public void setLocation(int rowNumber, int colNumber){
+		this.row = rowNumber;
 		
+		this.column = colNumber;
 	}
 	
     @Override
