@@ -1,9 +1,10 @@
 package textExcel;
 
 public class EmptyCell implements Cell {
+	private String text;
 	
 	public EmptyCell(){
-		String text = "";
+		text = "";
 		for(int i=0;i<10;i++){
 			text += " ";
 		}

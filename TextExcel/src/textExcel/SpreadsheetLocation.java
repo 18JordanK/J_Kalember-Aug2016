@@ -8,19 +8,21 @@ public class SpreadsheetLocation implements Location
 	private int column;
 	
 	public SpreadsheetLocation(String cellName){
-		char rowLetterChar = cellName.charAt(0);
-		int rowLetterInt = rowLetterChar - 'A';
+		char colLetterChar = cellName.charAt(0);
+		int colLetterInt = colLetterChar - 'A';
 		
-		String colNumberString = cellName.substring(1);
-		int colNumberInt = Integer.parseInt(colNumberString);
+		String rowNumberString = cellName.substring(1);
+		int rowNumberInt = Integer.parseInt(rowNumberString);
 		
-		this.row = rowLetterInt;
-		this.column = colNumberInt - 1;
+		this.row = rowNumberInt - 1;
+		this.column = colLetterInt;
+		
 		
 	}
 	
 	public void setLocation(int rowNumber, int colNumber){
-		
+		this.row = rowNumber;
+		this.column = colNumber;
 	}
 	
     @Override

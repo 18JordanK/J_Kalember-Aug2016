@@ -4,15 +4,14 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-	private int rowsNumber;
-	private int colsNumber;
+	private int rowsNumber = 20;
+	private int colsNumber = 12;
+	Cell[][] arraySpreadsheet = new EmptyCell[rowsNumber][colsNumber];
 	
 	public Spreadsheet(){
-		Cell[][] arraySpreadsheet = new EmptyCell[rowsNumber][colsNumber];
-		
 		for(int i=0;i<rowsNumber; i++){
 			for(int j=0; j<colsNumber; j++){
-				arraySpreadsheet[i][j] = new TextCell("hello");
+				arraySpreadsheet[i][j] = new EmptyCell();
 			}
 		}
 	}
