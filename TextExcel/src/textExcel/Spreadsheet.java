@@ -8,6 +8,7 @@ public class Spreadsheet implements Grid
 	private int colsNumber = 12;
 	Cell[][] arraySpreadsheet = new EmptyCell[rowsNumber][colsNumber];
 	
+	
 	public Spreadsheet(){
 		for(int i=0;i<rowsNumber; i++){
 			for(int j=0; j<colsNumber; j++){
@@ -28,7 +29,18 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		return command;
+		if(command.equals("clear")){
+		}
+		
+		//checks if command is a cell inspection
+		if(command.length() == 2){
+
+		}
+		
+		if((command.equals("clear")) && (command.length() == 2)){
+			
+		}
+		return "";
 	}
 
 	@Override
@@ -54,6 +66,7 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

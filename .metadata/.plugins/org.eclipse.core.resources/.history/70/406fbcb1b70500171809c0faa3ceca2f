@@ -1,44 +1,46 @@
 package textExcel;
 
-import java.util.Scanner;
-
 // Update this file with your own code.
 
 public class Spreadsheet implements Grid
 {
-	private int rowsNumber;
-	private int colsNumber;
+	private int rowsNumber = 20;
+	private int colsNumber = 12;
+	Cell[][] arraySpreadsheet = new EmptyCell[rowsNumber][colsNumber];
 	
-	public Spreadsheet(int cNumber, int rNumber){
-		rowsNumber = rNumber;
-		colsNumber = cNumber;
-		
-		EmptyCell[][] arraySpreadsheet = new EmptyCell[colsNumber][rowsNumber];
-		
+	public Spreadsheet(){
 		for(int i=0;i<rowsNumber; i++){
 			for(int j=0; j<colsNumber; j++){
-				arraySpreadsheet[i][j] = EmptyCell.EmptyCell();
+				arraySpreadsheet[i][j] = new EmptyCell();
 			}
 		}
+	}
+	
+	public void setRows(int num){
+		this.rowsNumber = num;
+	}
+	
+	public void setColumns(int num){
+		this.colsNumber = num;
 	}
 	
 	@Override
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return command;
 	}
 
 	@Override
 	public int getRows()
 	{
-		return rowsNumber;
+		return this.rowsNumber;
 	}
 
 	@Override
 	public int getCols()
 	{
-		return colsNumber;
+		return this.colsNumber;
 	}
 
 	@Override
