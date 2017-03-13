@@ -14,4 +14,7 @@ public class RealCell implements Cell {
 		return null;
 	}
 
+	public double getDoubleValue(){
+		return 0.0;
+	}
 }

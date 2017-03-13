@@ -1,10 +1,10 @@
 package textExcel;
 
 public class TextCell implements Cell {
-	private String textCell;
+	private String text;
 	
 	public TextCell(String t){
-		setText(t);
+		this.text = t;
 	}
 	
 	public String truncate(String text){
@@ -19,14 +19,6 @@ public class TextCell implements Cell {
 		}
 		paddedText = text;
 		return paddedText;
-	}
-	
-	public void setText(String text){
-		this.textCell = text;
-	}
-	
-	public String getText(){
-		return this.textCell;
 	}
 	
 	@Override

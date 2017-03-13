@@ -14,7 +14,7 @@ public class SpreadsheetLocation implements Location
 		String rowNumberString = cellName.substring(1);
 		int rowNumberInt = Integer.parseInt(rowNumberString) - 1;
 		
-		setLocation(rowNumberInt, colLetterInt);
+		setLocation(rowNumberInt-1, colLetterInt);
 		
 	}
 	

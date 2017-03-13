@@ -15,8 +15,6 @@ public class Spreadsheet implements Grid
 				arraySpreadsheet[i][j] = new EmptyCell();
 			}
 		}
-		setRows(rowsNumber);
-		setColumns(colsNumber);
 	}
 	
 	public void setRows(int num){
@@ -32,12 +30,11 @@ public class Spreadsheet implements Grid
 	{
 		// TODO Auto-generated method stub
 		if(command.equals("clear")){
-		
 		}
 		
 		//checks if command is a cell inspection
 		if(command.length() == 2){
-			
+
 		}
 		
 		if((command.equals("clear")) && (command.length() == 2)){
@@ -69,8 +66,7 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		String gridText = "";
-		for(int i=0; i<)
+		
 		return null;
 	}
 

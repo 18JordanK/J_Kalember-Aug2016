@@ -12,9 +12,9 @@ public class SpreadsheetLocation implements Location
 		int colLetterInt = colLetterChar - 'A';
 		
 		String rowNumberString = cellName.substring(1);
-		int rowNumberInt = Integer.parseInt(rowNumberString) - 1;
+		int rowNumberInt = Integer.parseInt(rowNumberString);
 		
-		setLocation(rowNumberInt, colLetterInt);
+		setLocation(rowNumberInt-1, colLetterInt);
 		
 	}
 	
