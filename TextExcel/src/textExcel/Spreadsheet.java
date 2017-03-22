@@ -8,7 +8,6 @@ public class Spreadsheet implements Grid
 	private int colsNumber = 12;
 	Cell[][] arraySpreadsheet = new EmptyCell[rowsNumber][colsNumber];
 	
-	
 	public Spreadsheet(){
 		for(int i=0;i<rowsNumber; i++){
 			for(int j=0; j<colsNumber; j++){

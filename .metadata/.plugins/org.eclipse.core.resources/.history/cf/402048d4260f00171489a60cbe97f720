@@ -31,6 +31,7 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
+		command = command.toLowerCase();
 		if(command.equals("clear")){
 		
 		}
@@ -40,7 +41,7 @@ public class Spreadsheet implements Grid
 			
 		}
 		
-		if((command.equals("clear")) && (command.length() == 2)){
+		if((command.length() == 2)){
 			
 		}
 		return "";
@@ -70,7 +71,7 @@ public class Spreadsheet implements Grid
 	{
 		// TODO Auto-generated method stub
 		String gridText = "";
-		for(int i=0; i<)
+		//for(int i=0; i<)
 		return null;
 	}
 
