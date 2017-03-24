@@ -8,7 +8,7 @@ public class SpreadsheetLocation implements Location
 	private int column;
 	
 	public SpreadsheetLocation(String cellName){
-		
+		//Splits the cell
 		char colLetterChar = cellName.charAt(0);
 		int colLetterInt = colLetterChar - 'A';
 		

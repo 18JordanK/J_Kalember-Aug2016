@@ -32,15 +32,36 @@ public class Spreadsheet implements Grid
 		// TODO Auto-generated method stub
 		command = command.toLowerCase();
 		if(command.equals("clear")){
-		
+			for(int i=0;i<rowsNumber; i++){
+				for(int j=0; j<colsNumber; j++){
+					arraySpreadsheet[i][j] = new EmptyCell();
+				}
+			}
 		}
 		
 		//checks if command is a cell inspection
-		if(command.length() == 2){
-			
+		if(command.contains("=")){
+			String[] splitCommand = command.split("=");
+			SpreadsheetLocation location = new SpreadsheetLocation(splitCommand[0]);
+			//checks for quotation marks in assignment
+			if(command.contains("\"")){
+				arraySpreadsheet[location.getCol()][location.getRow()] = 
+						new TextCell(splitCommand[1]);
+			}
+			//
+			if(command.contains("\"")){
+				
+			}
 		}
 		
-		if((command.length() == 2)){
+		if(command.contains("clear ")){
+			String[] splitCommand = command.split(" ");
+			SpreadsheetLocation location = new SpreadsheetLocation(splitCommand[0]);
+			arraySpreadsheet[location.getCol()][location.getRow()] = new EmptyCell();
+		}else{
+			
+			SpreadsheetLocation location = new SpreadsheetLocation(command);
+			return(arraySpreadsheet[location.getCol()][location.getRow()].fullCellText() );
 			
 		}
 		return "";
