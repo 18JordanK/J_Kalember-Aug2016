@@ -4,7 +4,7 @@ public class TextCell implements Cell {
 	private String textCell;
 	
 	public TextCell(String t){
-		this.textCell = t;
+		setText(t);
 	}
 	
 	public String truncate(String text){

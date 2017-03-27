@@ -1,5 +1,7 @@
 package textExcel;
 
+// Update this file with your own code.
+
 public class Spreadsheet implements Grid
 {
 	private int rowsNumber = 20;
@@ -29,7 +31,6 @@ public class Spreadsheet implements Grid
 	{
 		// TODO Auto-generated method stub
 		command = command.toLowerCase();
-		
 		if(command.equals("clear")){
 			for(int i=0;i<rowsNumber; i++){
 				for(int j=0; j<colsNumber; j++){
@@ -38,34 +39,29 @@ public class Spreadsheet implements Grid
 			}
 		}
 		
-		if(command.contains("clear ")){
-			String[] splitCommand = command.split(" ");
-			SpreadsheetLocation location = new SpreadsheetLocation(splitCommand[0]);
-			arraySpreadsheet[location.getCol()][location.getRow()] = new EmptyCell();
-		}
-		
 		//checks if command is a cell inspection
 		if(command.contains("=")){
 			String[] splitCommand = command.split("=");
 			SpreadsheetLocation location = new SpreadsheetLocation(splitCommand[0]);
 			//checks for quotation marks in assignment
 			if(command.contains("\"")){
-				arraySpreadsheet[location.getCol()][location.getRow()] = new TextCell(splitCommand[1]);
+				arraySpreadsheet[location.getCol()][location.getRow()] = 
+						new TextCell(splitCommand[1]);
 			}
-			/*
-			if(command.contains("+") || command.contains("-") || command.contains("/")){
-				//arraySpreadsheet[location.getCol()][location.getRow()] = new FormulaCell(splitCommand[1]);
-			}
-			
-			if(command.contains(".")){
-				//arraySpreadsheet[location.getCol()][location.getRow()] = new PercentCell(splitCommand[1]);
+			//
+			if(command.contains("\"")){
 				
-			}else{
-				//arraySpreadsheet[location.getCol()][location.getRow()] = new RealCell(splitCommand[1]);
-			}*/
+			}
+		}
+		
+		if(command.contains("clear ")){
+			String[] splitCommand = command.split(" ");
+			SpreadsheetLocation location = new SpreadsheetLocation(splitCommand[0]);
+			arraySpreadsheet[location.getCol()][location.getRow()] = new EmptyCell();
 		}else{
-			//SpreadsheetLocation location = new SpreadsheetLocation(command);
-			//return(arraySpreadsheet[location.getCol()][location.getRow()].fullCellText() );
+			
+			SpreadsheetLocation location = new SpreadsheetLocation(command);
+			return(arraySpreadsheet[location.getCol()][location.getRow()].fullCellText() );
 			
 		}
 		return "";

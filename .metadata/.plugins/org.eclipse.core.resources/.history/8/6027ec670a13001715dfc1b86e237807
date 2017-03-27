@@ -64,8 +64,8 @@ public class Spreadsheet implements Grid
 				//arraySpreadsheet[location.getCol()][location.getRow()] = new RealCell(splitCommand[1]);
 			}*/
 		}else{
-			//SpreadsheetLocation location = new SpreadsheetLocation(command);
-			//return(arraySpreadsheet[location.getCol()][location.getRow()].fullCellText() );
+			SpreadsheetLocation location = new SpreadsheetLocation(command);
+			return(arraySpreadsheet[location.getCol()][location.getRow()].fullCellText() );
 			
 		}
 		return "";

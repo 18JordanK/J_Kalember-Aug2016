@@ -19,8 +19,7 @@ public class TextExcel{
 		
 		TestsALL.Helper th = new TestsALL.Helper();
         System.out.println(th.getText());
-		
-        //Loop through commands, send to processCommand method.
+		//Loop through commands, send to processCommand method.
 		while(!(userCommand.equals("quit"))){
 			System.out.println(sprsheet.processCommand(userCommand));
 			userCommand = console.nextLine();

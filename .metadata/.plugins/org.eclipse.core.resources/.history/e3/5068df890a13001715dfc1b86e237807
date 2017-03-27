@@ -4,11 +4,11 @@ public class TextCell implements Cell {
 	private String textCell;
 	
 	public TextCell(String t){
-		this.textCell = t;
+		setText(t);
 	}
 	
 	public String truncate(String text){
-		String truncatedText = text.substring(0,10);
+		String truncatedText = text.substring(10);
 		return truncatedText;
 	}
 	

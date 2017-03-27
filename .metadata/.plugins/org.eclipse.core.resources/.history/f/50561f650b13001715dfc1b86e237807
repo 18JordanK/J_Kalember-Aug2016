@@ -12,7 +12,7 @@ public class SpreadsheetLocation implements Location
 		this.column = Character.toUpperCase(cellName.charAt(0)) - 'A';
 		
 		String rowNumberString = cellName.substring(1);
-		this.row = Integer.parseInt(rowNumberString) - 1;
+		this.row = Integer.parseInt(rowNumberString);
 	}
 	
 	public void setLocation(int rowNumber, int colNumber){
