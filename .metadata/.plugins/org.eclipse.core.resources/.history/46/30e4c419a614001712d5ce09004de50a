@@ -16,16 +16,16 @@ public class EmptyCell implements Cell {
 
 	@Override
 	public String fullCellText() {
-		return text;
+		return this.text;
 	}
 
 	public String getText() {
-		return text;
+		return this.text;
 	}
 
 	public void setText(String text) {
 		for(int i=0;i<10;i++){
-			this.text += " ";
+			this.text += (getText() + " ");
 		}
 	}
 

@@ -9,8 +9,10 @@ public class SpreadsheetLocation implements Location
 	
 	public SpreadsheetLocation(String cellName){
 		//Splits the cell
+		this.column = Character.toUpperCase(cellName.charAt(0)) - 'A';
+		
 		String rowNumberString = cellName.substring(1);
-		setLocation(Character.toUpperCase(cellName.charAt(0)) - 'A', Integer.parseInt(rowNumberString) - 1);
+		this.row = Integer.parseInt(rowNumberString) - 1;
 	}
 	
 	public void setLocation(int rowNumber, int colNumber){

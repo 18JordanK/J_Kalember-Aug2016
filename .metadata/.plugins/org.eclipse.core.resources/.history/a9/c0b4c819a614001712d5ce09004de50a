@@ -48,7 +48,7 @@ public class Spreadsheet implements Grid
 		if(lowerCommand.contains("=")){
 			String[] splitCommand = command.split("=");
 			SpreadsheetLocation location = new SpreadsheetLocation(splitCommand[0]);
-			
+			//checks for quotation marks in assignment
 			if(command.contains("\"")){
 				arraySpreadsheet[location.getCol()][location.getRow()] = new TextCell(splitCommand[1]);
 			}
