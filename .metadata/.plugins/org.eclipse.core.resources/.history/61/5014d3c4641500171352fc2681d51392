@@ -8,8 +8,8 @@ public class SpreadsheetLocation implements Location
 	private int column;
 	
 	public SpreadsheetLocation(String cellName){
+		//Splits the cell
 		String rowNumberString = cellName.substring(1);
-		
 		setLocation(Character.toUpperCase(cellName.charAt(0)) - 'A', Integer.parseInt(rowNumberString) - 1);
 	}
 	
@@ -19,14 +19,16 @@ public class SpreadsheetLocation implements Location
 	}
 	
     @Override
-    public int getRow(){
-        
+    public int getRow()
+    {
+        // TODO Auto-generated method stub
         return this.row;
     }
 
     @Override
-    public int getCol(){
-        
+    public int getCol()
+    {
+        // TODO Auto-generated method stub
         return this.column;
     }
     
