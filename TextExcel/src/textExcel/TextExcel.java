@@ -18,7 +18,7 @@ public class TextExcel{
 		Spreadsheet sprsheet = new Spreadsheet();
 		
 		TestsALL.Helper th = new TestsALL.Helper();
-        System.out.println(th.getText());
+        //System.out.println(th.getText());
 		
         //Loop through commands, send to processCommand method.
 		System.out.println(sprsheet.getGridText());

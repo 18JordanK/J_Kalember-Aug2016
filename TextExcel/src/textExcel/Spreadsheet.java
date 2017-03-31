@@ -92,23 +92,32 @@ public class Spreadsheet implements Grid
 	@Override
 	public String getGridText(){
 		String gridText = "";
-		String spaces = "          ";
-		gridText += "|";
+		String spaces = "         ";
 		
 		for(int i = 0; i <=20; i++){
-			if(i > 0){
-				gridText += (i);
+			if(i==0){
+				gridText += "   |";
 			}
-			for(char j = 'A'; j <= 'M'; j++){
-				if(i==0){
+			
+			if(i > 0 && i < 10){
+				gridText += (i) + "  " + "|";
+			}
+			
+			if(i < 99 && i >= 10){
+				gridText += (i) + " " + "|";
+			}
+			
+			for(char j = 'A'; j < 'M'; j++){
+				//row 1
+				if(i == 0){
 					gridText += (j) + spaces + "|";
 				}
+				
+				//rows 2-20
 				if(i > 0){
-					gridText += "|" + spaces;
+					gridText += spaces + " " + "|";
 				}
-				spaces+= " ";
 			}
-			spaces = "          ";
 			gridText += "\n";
 		}
 		return gridText;
